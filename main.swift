@@ -1,12 +1,6 @@
-// ============================================================
-// main.swift
-// Wipro LAB-1C — Collections and Enums
-// Entry point: exercises every task with printed output
-// ============================================================
+
 
 import Foundation
-
-// ── Banner helper ─────────────────────────────────────────────
 func banner(_ title: String) {
     let line = String(repeating: "═", count: 56)
     print("\n\(line)")
@@ -18,9 +12,6 @@ func subheader(_ title: String) {
     print("\n  ── \(title) " + String(repeating: "─", count: max(0, 44 - title.count)))
 }
 
-// ================================================================
-// TASK 1 — Array: Course Management
-// ================================================================
 banner("TASK 1 · Array — Course Management")
 
 var cm = CourseManager()
@@ -29,11 +20,11 @@ cm.printAll(label: "Initial Courses")
 subheader("Add courses")
 cm.add("Cloud Computing")
 cm.add("Cybersecurity")
-cm.add("")                       // invalid – should warn
+cm.add("")                      
 
 subheader("Remove a course")
 cm.remove("Web Technologies")
-cm.remove("Physics")             // doesn't exist – should warn
+cm.remove("Physics")/           
 
 subheader("All courses after edits")
 cm.printAll()
@@ -55,9 +46,7 @@ subheader("Iterate with index (map to uppercase)")
 let upperCourses = cm.sorted().enumerated().map { "\($0.offset + 1). \($0.element.uppercased())" }
 upperCourses.forEach { print("  \($0)") }
 
-// ================================================================
-// TASK 2 — Set: Duplicate Student ID Removal
-// ================================================================
+
 banner("TASK 2 · Set — Duplicate Student ID Removal")
 
 let sectionA = StudentIDRegistry(rawIDs: [101, 102, 103, 101, 104, 102, 105, 103, 106])
@@ -80,9 +69,7 @@ print("  Only in B       : \(onlyInB.sorted())")
 print("  In both A & B   : \(inBoth.sorted())")
 print("  All unique IDs  : \(allUnique.sorted()) [\(allUnique.count) students]")
 
-// ================================================================
-// TASK 3 — Dictionary: Student Marks Gradebook
-// ================================================================
+
 banner("TASK 3 · Dictionary — Student Marks Gradebook")
 
 var gradebook = Gradebook([
@@ -113,19 +100,17 @@ if below50.isEmpty {
 }
 
 subheader("Add / Update records")
-gradebook.updateMarks(for: 111, marks: 83)   // new student
-gradebook.updateMarks(for: 105, marks: 55)   // re-exam result
+gradebook.updateMarks(for: 111, marks: 83)   
+gradebook.updateMarks(for: 105, marks: 55)   
 
 subheader("Remove a student")
 gradebook.remove(id: 108)
-gradebook.remove(id: 999)                    // doesn't exist
+gradebook.remove(id: 999)                    
 
 subheader("After edits — total students: \(gradebook.count)")
 gradebook.printAll()
 
-// ================================================================
-// TASK 4 — Enums: Task Priority & Order Status
-// ================================================================
+
 banner("TASK 4 · Enums — Task Priority & Order Status")
 
 subheader("All TaskPriority levels (switch demo)")
@@ -165,9 +150,7 @@ subheader("Sort tasks by priority (highest first)")
 let sorted = tasks.sorted { $0.priority > $1.priority }
 sorted.forEach { print("  \($0.priority.label)  →  \($0.title)") }
 
-// ================================================================
-// TASK 5 — When to Use Array, Set, Dictionary
-// ================================================================
+
 banner("TASK 5 · When to Use Array vs Set vs Dictionary")
 
 print("""
