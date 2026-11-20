@@ -1,25 +1,12 @@
-// ============================================================
-// Enums.swift
-// Wipro LAB-1C — Collections and Enums
-//
-// Task 4: enum for task priority AND order status
-//         switch to display user-friendly labels + actions
-// ============================================================
+
 
 import Foundation
-
-// ================================================================
-// MARK: - Task Priority Enum
-// ================================================================
-
-/// Priority levels for academic/lab tasks.
 enum TaskPriority: Int, CaseIterable, Comparable {
     case low      = 1
     case medium   = 2
     case high     = 3
     case critical = 4
 
-    // User-friendly label
     var label: String {
         switch self {
         case .low:      return "🟢 Low"
@@ -29,7 +16,6 @@ enum TaskPriority: Int, CaseIterable, Comparable {
         }
     }
 
-    // Recommended action
     var action: String {
         switch self {
         case .low:      return "Schedule it for later in the week."
@@ -39,7 +25,6 @@ enum TaskPriority: Int, CaseIterable, Comparable {
         }
     }
 
-    // SLA in hours
     var slaHours: Int {
         switch self {
         case .low:      return 72
@@ -54,11 +39,7 @@ enum TaskPriority: Int, CaseIterable, Comparable {
     }
 }
 
-// ================================================================
-// MARK: - Order Status Enum (with associated values)
-// ================================================================
 
-/// Lifecycle states of a student course-enrollment order.
 enum OrderStatus {
     case pending
     case confirmed(confirmationCode: String)
@@ -66,7 +47,6 @@ enum OrderStatus {
     case completed(grade: String)
     case cancelled(reason: String)
 
-    // User-friendly label
     var label: String {
         switch self {
         case .pending:
@@ -83,7 +63,6 @@ enum OrderStatus {
         }
     }
 
-    // Next allowed transitions
     var nextSteps: String {
         switch self {
         case .pending:
@@ -100,9 +79,7 @@ enum OrderStatus {
     }
 }
 
-// ================================================================
-// MARK: - Lab Task struct (uses both enums together)
-// ================================================================
+
 
 struct LabTask {
     let title:    String
